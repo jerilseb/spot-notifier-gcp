@@ -158,7 +158,7 @@ func main() {
 		log.Fatalf("Failed to get project ID: %v", err)
 	}
 
-	message := fmt.Sprintf("GCP Instance Launched\n"+
+	message := fmt.Sprintf("GCP Instance Started\n"+
 		"```\n"+
 		"Name: %s\n"+
 		"ID: %s\n"+

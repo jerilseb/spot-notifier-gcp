@@ -165,7 +165,7 @@ func main() {
 		"Zone: %s\n"+
 		"Type: %s\n"+
 		"Project: %s\n"+
-		"Terminate after: %d hours\n"+
+		"Stop after: %d hours\n"+
 		"```\n",
 		name, instanceID, zone, machineType, projectID, terminateAfterHours)
 
@@ -179,12 +179,12 @@ func main() {
 
 		// 1. Check TTL (Self-Termination)
 		if uptime > terminateAfter {
-			sendSlackMessage(fmt.Sprintf("Instance `%s` in `%s` crossed uptime threshold. Will terminate in %v", name, zone, gracePeriod))
-			log.Printf("Crossed uptime threshold. Terminating in %v", gracePeriod)
+			sendSlackMessage(fmt.Sprintf("Instance `%s` in `%s` crossed uptime threshold. Will stop in %v", name, zone, gracePeriod))
+			log.Printf("Crossed uptime threshold. Stopping in %v", gracePeriod)
 			time.Sleep(gracePeriod)
 
 			if err := terminateInstance(projectID, zone, name); err != nil {
-				log.Printf("Termination failed: %v", err)
+				log.Printf("Stopping failed: %v", err)
 			}
 			break
 		}

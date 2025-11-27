@@ -1,0 +1,14 @@
+*.exe
+*.dll
+*.so
+*.out
+*.a
+*.o
+*.cover
+*.log
+*.tmp
+*.trace
+*.swp
+.DS_Store
+Thumbs.db
+build
